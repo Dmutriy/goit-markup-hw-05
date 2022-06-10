@@ -733,6 +733,13 @@ body {
     top: 0px;
 
     background: rgba(0, 0, 0, 0.2);
+
+    transition: visibility var(---transition-hover),
+        opacity var(---transition-hover);
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(1.1) rotateX(90deg);
 }
 
 .modal {
@@ -741,7 +748,8 @@ body {
     min-height: 581px;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1) rotateZ(0);
+    transition: transform var(---transition-hover);
 
     background: var(--mine-br-color);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -754,7 +762,6 @@ body {
     top: 10px;
     right: 10px;
 
-    width: 30px;
     height: 30px;
 
     display: flex;
@@ -764,7 +771,21 @@ body {
     border-radius: 50%;
     background: transparent;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 10px;
+}
+
+.modal-btn-close:hover .modal-btn-close-icon,
+.modal-btn-close:focus .modal-btn-close-icon {
+    fill: var(--btn-br-color);
+}
+
+.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.no-scroll {
+    overflow: hidden;
 }
 /* 
 .modal-btn-close-icon {
