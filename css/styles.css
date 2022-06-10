@@ -133,6 +133,7 @@ body {
     color: var(--mine-title-color);
     padding-top: 32px;
     padding-bottom: 32px;
+    position: relative;
 }
 
 .header-nav {
@@ -151,6 +152,17 @@ body {
 
 .header-list .header-link.current {
     color: var(--accent-color);
+}
+
+.header-link.current::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+    left: 0;
+    bottom: 0;
 }
 
 .header-mail,
